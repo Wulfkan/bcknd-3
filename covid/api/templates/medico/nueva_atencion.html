@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Atención</title>
+</head>
+<body>
+    <h2>Registrar Nueva Atención</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="rut">RUT del Paciente:</label>
+            <input type="text" id="rut" name="rut" placeholder="11111111-1" required>
+        </div>
+        <div>
+            <label for="anamnesis">Anamnesis:</label>
+            <textarea id="anamnesis" name="anamnesis" required></textarea>
+        </div>
+        <div>
+            <label for="diagnostico">Diagnóstico:</label>
+            <textarea id="diagnostico" name="diagnostico" required></textarea>
+        </div>
+        <div>
+            <label for="medicamentos">Medicamentos:</label>
+            <select id="medicamentos" name="medicamentos" multiple>
+                {% for medicamento in medicamentos %}
+                    <option value="{{ medicamento.id }}">{{ medicamento.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="examenes">Exámenes:</label>
+            <select id="examenes" name="examenes" multiple>
+                {% for examen in examenes %}
+                    <option value="{{ examen.id }}">{{ examen.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit">Guardar Atención</button>
+    </form>
+
+    <!-- Botón para volver al panel del médico -->
+    <a href="{% url 'medico_dashboard' %}" class="button">Volver al Panel del Médico</a>
+</body>
+</html>

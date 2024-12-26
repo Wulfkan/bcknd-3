@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Ficha Médica</title>
+</head>
+<body>
+    <h2>Detalle de Ficha Médica</h2>
+    <p><strong>Paciente:</strong> {{ ficha.paciente.nombre }}</p>
+    <p><strong>RUT:</strong> {{ ficha.paciente.rut }}</p>
+    <p><strong>Fecha de Nacimiento:</strong> {{ ficha.paciente.fecha_nacimiento }}</p>
+    <h3>Atenciones</h3>
+    <ul>
+        {% for atencion in ficha.atenciones.all %}
+            <li>
+                {{ atencion.fecha_atencion }} - {{ atencion.diagnostico }}
+                (Atendido por {{ atencion.medico.user.username }})
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'nueva_atencion' %}">Registrar Nueva Atención</a>
+    <a href="{% url 'medico_dashboard' %}" class="button">Volver al Panel del Médico</a>
+</body>
+</html>

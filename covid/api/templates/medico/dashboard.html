@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel del Médico</title>
+</head>
+<body>
+    <h1>Bienvenido, {{ user.username }}</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'obtener_ficha' %}">Buscar Ficha de Paciente</a></li>
+            <li><a href="{% url 'nueva_atencion' %}">Registrar Nueva Atención</a></li>
+            <li><a href="{% url 'pacientes_atendidos' %}">Pacientes Atendidos</a></li>
+            <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

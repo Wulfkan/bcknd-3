@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Especialidades</title>
+</head>
+<body>
+    <h1>Lista de Especialidades</h1>
+    <a href="{% url 'crear_especialidad' %}">Crear Especialidad</a>
+    <ul>
+        {% for especialidad in especialidades %}
+            <li>{{ especialidad.nombre }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'admin_dashboard' %}">Volver al Dashboard</a>
+</body>
+</html>

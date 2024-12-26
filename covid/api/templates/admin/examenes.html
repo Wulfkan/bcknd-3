@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Exámenes</title>
+</head>
+<body>
+    <h1>Lista de Exámenes</h1>
+    <a href="{% url 'crear_examen' %}">Crear Examen</a>
+    <ul>
+        {% for examen in examenes %}
+            <li>{{ examen.nombre }} - {{ examen.descripcion }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'admin_dashboard' %}">Volver al Dashboard</a>
+</body>
+</html>

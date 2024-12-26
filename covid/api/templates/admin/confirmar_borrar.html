@@ -1,0 +1,13 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Borrar {{ titulo_singular }}{% endblock %}
+
+{% block content %}
+<h2>Borrar {{ titulo_singular }}</h2>
+<p>¿Estás seguro de que deseas borrar "{{ objeto }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, borrar</button>
+</form>
+<a href="{{ url_volver }}">Cancelar</a>
+{% endblock %}

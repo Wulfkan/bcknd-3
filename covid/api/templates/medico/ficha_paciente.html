@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ficha del Paciente</title>
+</head>
+<body>
+    <h2>Buscar Ficha Médica</h2>
+    <form method="get">
+        <label for="rut">RUT del Paciente:</label>
+        <input type="text" id="rut" name="rut" placeholder="11111111-1" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    {% if ficha %}
+        <h3>Ficha Médica de {{ ficha.paciente.nombre }}</h3>
+        <p><strong>RUT:</strong> {{ ficha.paciente.rut }}</p>
+        <p><strong>Fecha de Nacimiento:</strong> {{ ficha.paciente.fecha_nacimiento }}</p>
+        <h4>Atenciones:</h4>
+        <ul>
+            {% for atencion in ficha.atenciones.all %}
+                <li>
+                    {{ atencion.fecha_atencion }} - {{ atencion.diagnostico }}
+                    (Atendido por {{ atencion.medico.user.username }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="{% url 'medico_dashboard' %}" class="button">Volver al Panel del Médico</a>
+</body>
+</html>

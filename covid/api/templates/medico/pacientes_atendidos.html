@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pacientes Atendidos</title>
+</head>
+<body>
+    <h2>Pacientes Atendidos</h2>
+    <ul>
+        {% for atencion in atenciones %}
+            <li>
+                Paciente: {{ atencion.ficha.paciente.nombre }} ({{ atencion.ficha.paciente.rut }})<br>
+                Fecha: {{ atencion.fecha_atencion }}<br>
+                Diagnóstico: {{ atencion.diagnostico }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'medico_dashboard' %}" class="button">Volver al Panel del Médico</a>
+</body>
+</html>

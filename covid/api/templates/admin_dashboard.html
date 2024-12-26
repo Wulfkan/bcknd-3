@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración</title>
+</head>
+<body>
+    <h1>Panel de Administración</h1>
+    <ul>
+        <li><a href="{% url 'lista_medicamentos' %}">Gestionar Medicamentos</a></li>
+        <li><a href="{% url 'lista_examenes' %}">Gestionar Exámenes</a></li>
+        <li><a href="{% url 'lista_especialidades' %}">Gestionar Especialidades</a></li>
+        <li><a href="{% url 'lista_doctores' %}">Gestionar Médicos</a></li>
+    </ul>
+    <a href="{% url 'logout' %}">Cerrar Sesión</a>
+</body>
+</html>

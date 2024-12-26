@@ -1,0 +1,13 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}{{ accion }} {{ titulo_singular }}{% endblock %}
+
+{% block content %}
+<h2>{{ accion }} {{ titulo_singular }}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+<a href="{{ url_volver }}">Volver a la Lista</a>
+{% endblock %}

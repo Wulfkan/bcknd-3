@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Doctores</title>
+</head>
+<body>
+    <h1>Lista de Doctores</h1>
+    <a href="{% url 'crear_doctor' %}">Crear Doctor</a>
+    <ul>
+        {% for doctor in doctores %}
+            <li>
+                {{ doctor.user.get_full_name }} - Especialidades: 
+                {% for especialidad in doctor.especialidades.all %}
+                    {{ especialidad.nombre }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'admin_dashboard' %}">Volver al Dashboard</a>
+</body>
+</html>

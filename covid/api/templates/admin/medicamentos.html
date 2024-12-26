@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Medicamentos</title>
+</head>
+<body>
+    <h1>Medicamentos</h1>
+    <a href="{% url 'crear_medicamento' %}">Crear Medicamento</a>
+    <ul>
+        {% for medicamento in medicamentos %}
+            <li>{{ medicamento.nombre }}: {{ medicamento.descripcion }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

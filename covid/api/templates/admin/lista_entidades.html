@@ -1,0 +1,24 @@
+<a href="{{ url_crear }}">Crear Nuevo {{ titulo_singular }}</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Especialidades</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for objeto in objetos %}
+            <tr>
+                <td>{{ objeto.valores.0 }}</td>
+                <td>{{ objeto.valores.1 }}</td>
+                <td>
+                    <a href="{{ objeto.url_editar }}">Editar</a> | 
+                    <a href="{{ objeto.url_borrar }}">Borrar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'admin_dashboard' %}">Volver al Dashboard</a>
